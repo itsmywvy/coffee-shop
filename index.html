@@ -1,13 +1,61 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FORMASTUDIO — Outdoor architecture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;900&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <header class="site-header">
+      <div class="logo">
+        <span class="logo-mark" aria-hidden="true">⌂</span>
+        <span class="logo-text">FORMASTUDIO</span>
+        <sup class="reg">®</sup>
+      </div>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="#">HOMEPAGE</a>
+        <a href="#">ABOUT US</a>
+        <a href="#">SERVICES</a>
+        <a href="#">GALLERY</a>
+        <a href="#">CONTACTS</a>
+      </nav>
+      <div class="contact">
+        <div class="phone">+1 (480) 555 0173</div>
+        <div class="hours">daily from 9:00 AM to 6:00 PM</div>
+      </div>
+    </header>
+
+    <main class="hero">
+      <div class="hero-inner">
+        <h1 class="title" aria-label="FORMA STUDIO">
+          <span class="title-left">FORMA</span><span class="title-right">STUDIO</span>
+        </h1>
+
+        <p class="tagline">NATURE-INSPIRED SPACES<br/>FOR MODERN LIVING</p>
+
+        <div class="copy">
+          <p>
+            We blend innovation and nature to shape outdoor environments that inspire.
+            Trust Greenforma's team to transform your landscape into a masterpiece
+            of design and tranquility.
+          </p>
+        </div>
+
+        <a class="cta" href="#">
+          <span>VIEW PROJECTS</span>
+          <svg class="cta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <div class="script">Outdoor architecture</div>
+      </div>
+
+      <div class="house-img" role="img" aria-label="Modern low house with desert landscaping"></div>
+    </main>
   </body>
 </html>

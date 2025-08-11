@@ -1,0 +1,164 @@
+/* Root setup */
+:root {
+  --bg-sky-top: #a9c6d9;
+  --bg-sky-mid: #cbd7e1;
+  --bg-sky-low: #f2d0b1;
+  --ink: #191919;
+  --ink-dim: #4a4a4a;
+  --surface: #ffffff;
+  --cta: #1f1f1f;
+  --cta-text: #ffffff;
+  --focus: #3b82f6;
+}
+
+/* CSS Reset (trimmed) */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+  color: var(--ink);
+  background: linear-gradient(180deg, var(--bg-sky-top) 0%, var(--bg-sky-mid) 35%, var(--bg-sky-low) 100%);
+}
+img, svg { display: block; }
+
+/* Header */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  padding: 18px clamp(16px, 4vw, 48px);
+  z-index: 50;
+  backdrop-filter: saturate(120%) blur(4px);
+}
+
+.logo { display: flex; align-items: center; gap: 8px; font-weight: 600; letter-spacing: 0.02em; }
+.logo-mark { font-size: 18px; line-height: 1; }
+.logo-text { font-size: 14px; }
+.reg { font-size: 10px; top: -0.4em; position: relative; }
+
+.main-nav { display: none; gap: 28px; justify-self: center; }
+.main-nav a { font-size: 11px; letter-spacing: 0.18em; text-decoration: none; color: var(--ink-dim); }
+.main-nav a:hover { color: var(--ink); }
+
+.contact { justify-self: end; text-align: right; }
+.contact .phone { font-size: 13px; font-weight: 600; }
+.contact .hours { font-size: 10px; color: var(--ink-dim); margin-top: 2px; }
+
+@media (min-width: 900px) {
+  .main-nav { display: inline-flex; }
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.hero-inner {
+  position: relative;
+  padding: clamp(80px, 8vw, 120px) clamp(16px, 4vw, 48px) 24vh;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.title {
+  margin: clamp(32px, 7vw, 72px) 0 16px;
+  line-height: 0.83;
+  letter-spacing: -0.01em;
+  font-weight: 900;
+}
+.title-left,
+.title-right {
+  font-size: clamp(48px, 15vw, 210px);
+  display: inline-block;
+}
+.title-left { color: var(--surface); font-weight: 200; text-shadow: 0 0 12px rgba(0,0,0,0.1); }
+.title-right { color: #202020; font-weight: 900; }
+
+.script {
+  position: absolute;
+  right: clamp(16px, 4vw, 48px);
+  top: clamp(260px, 32vw, 420px);
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  font-size: clamp(16px, 2.2vw, 28px);
+}
+
+.tagline {
+  margin: clamp(8px, 2vw, 28px) 0 12px;
+  max-width: 320px;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  color: var(--surface);
+  text-transform: uppercase;
+}
+
+.copy {
+  max-width: 520px;
+  color: #2c2c2c;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-top: 6px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--cta);
+  color: var(--cta-text);
+  padding: 16px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  margin-top: clamp(16px, 3vw, 28px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+}
+.cta:hover { transform: translateY(-1px); box-shadow: 0 12px 22px rgba(0,0,0,0.22); }
+.cta:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+.cta-icon { opacity: 0.9; }
+
+/* House image anchored to bottom */
+.house-img {
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: clamp(36vh, 45vh, 52vh);
+  background-image: url('https://images.unsplash.com/photo-1505691723518-36a5ac3b2d53?q=80&w=1600&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center bottom;
+  filter: saturate(105%);
+}
+
+/* Layout helpers for wider screens */
+@media (min-width: 1024px) {
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "title title"
+      "left right"
+      "cta .";
+    row-gap: 16px;
+  }
+  .title { grid-area: title; }
+  .tagline { grid-area: left; align-self: start; }
+  .copy { grid-area: right; }
+}
+
+/* Better contrast on very light backgrounds */
+@media (prefers-color-scheme: dark) {
+  body { color: #e8e8e8; }
+  .copy { color: #e0e0e0; }
+  .main-nav a { color: #d0d0d0; }
+}
